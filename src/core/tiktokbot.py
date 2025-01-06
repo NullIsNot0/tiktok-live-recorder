@@ -225,7 +225,10 @@ class TikTok:
         url = f"https://webcast.tiktok.com/webcast/room/info/?aid=1988&room_id={self.room_id}"
         data = self.httpclient.get(url).json()
 
-        if 'This account is private' in data:
+        if 'Follow the creator to watch their LIVE' in json.dumps(data):
+            raise UserLiveException(TikTokError.ACCOUNT_PRIVATE_FOLLOW)
+
+        if 'This account is private' in json.dumps(data):
             raise UserLiveException(TikTokError.ACCOUNT_PRIVATE)
 
         live_url_flv = data.get(
