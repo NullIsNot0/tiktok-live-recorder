@@ -3,16 +3,16 @@ from utils.utils import banner
 
 banner()
 
-# check and install dependencies
-from utils.dependencies import check_and_install_dependencies
+# # check and install dependencies
+# from utils.dependencies import check_and_install_dependencies
 
-check_and_install_dependencies()
+# check_and_install_dependencies()
 
-# check for updates
-from check_updates import check_updates
+# # check for updates
+# from check_updates import check_updates
 
-if check_updates():
-    exit()
+# if check_updates():
+#     exit()
 
 import sys
 import os
